@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->unsignedInteger('company_id');
             $table->timestamps();
 
+            $table->unique(['name', 'company_id']);
             $table->foreign('company_id')->references('id')->on('companies');
         });
     }
