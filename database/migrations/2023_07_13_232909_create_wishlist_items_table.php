@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id')->unsigned();
             $table->string('title');
             $table->text('description');
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();
 
