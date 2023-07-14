@@ -16,12 +16,14 @@ class WishlistItemSeeder extends Seeder
         $users = User::all();
 
         foreach ($users as $user) {
-            $user->wishlist_items()->create([
-                'title' => fake()->sentence(3),
-                'description' => fake()->paragraph(),
-                'image_path' => '/600x400/png',
-                'user_id' => $user->id,
-            ]);
+            for ($i = 0; $i < 5; $i++) {
+                $user->wishlist_items()->create([
+                    'title' => fake()->sentence(3),
+                    'description' => fake()->paragraph(),
+                    'image_path' => '/600x400/png',
+                    'user_id' => $user->id,
+                ]);
+            }
         }
     }
 }

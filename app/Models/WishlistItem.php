@@ -10,7 +10,14 @@ class WishlistItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'image_path'];
+    protected $fillable = ['title', 'description', 'image_path', 'user_id'];
+
+    protected $appends = ['image_url'];
+
+    public function getImageUrlAttribute()
+    {
+        return 'https://placehold.co' . $this->image_path;
+    }
 
     public function owner(): BelongsTo
     {
